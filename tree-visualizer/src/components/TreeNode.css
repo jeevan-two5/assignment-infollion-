@@ -1,0 +1,184 @@
+.tree-node {
+  background: var(--node-bg);
+  border: 1.5px solid var(--node-border);
+  border-radius: 10px;
+  padding: 0;
+  width: 140px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  position: relative;
+  user-select: none;
+}
+
+.tree-node--hovered {
+  background: var(--node-hover);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow), 0 4px 20px rgba(0,0,0,0.4);
+  transform: translateY(-1px);
+}
+
+.tree-node--selected {
+  background: var(--node-selected);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow), 0 6px 24px rgba(79,142,247,0.25);
+}
+
+.tree-node--match {
+  border-color: var(--success) !important;
+  box-shadow: 0 0 0 3px rgba(79,209,165,0.2), 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+.tree-node__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  min-height: 56px;
+  position: relative;
+}
+
+.tree-node__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  flex: 1;
+  text-align: center;
+}
+
+/* Expand/Collapse toggle button */
+.tree-node__toggle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: var(--collapse-btn);
+  color: #1a1000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(245,166,35,0.35);
+  font-family: var(--font-mono);
+  padding-bottom: 1px;
+}
+
+.tree-node__toggle:hover {
+  background: var(--collapse-btn-hover);
+  transform: scale(1.15);
+  box-shadow: 0 3px 12px rgba(245,166,35,0.55);
+}
+
+.tree-node__toggle--collapsed {
+  background: var(--accent2);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(124,92,252,0.4);
+}
+
+.tree-node__toggle--collapsed:hover {
+  background: #9b7dff;
+  box-shadow: 0 3px 12px rgba(124,92,252,0.6);
+}
+
+/* Metadata button */
+.tree-node__meta-btn {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-muted);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.18s, color 0.18s;
+  padding: 0;
+  line-height: 1;
+}
+
+.tree-node__meta-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Metadata popup card */
+.tree-node__meta-card {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  min-width: 180px;
+  z-index: 100;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.tree-node__meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.tree-node__meta-row:last-child {
+  margin-bottom: 0;
+}
+
+.tree-node__meta-key {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+  padding-top: 1px;
+  min-width: 42px;
+}
+
+.tree-node__meta-val {
+  font-family: var(--font-display);
+  font-size: 11px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* React Flow handles */
+.tree-handle {
+  background: transparent !important;
+  border: none !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tree-handle--top {
+  top: 0 !important;
+}
+
+.tree-handle--bottom {
+  bottom: 0 !important;
+}

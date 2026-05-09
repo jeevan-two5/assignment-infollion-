@@ -1,0 +1,100 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0a0c10;
+  --surface: #111318;
+  --surface2: #1a1d26;
+  --border: #252836;
+  --accent: #4f8ef7;
+  --accent2: #7c5cfc;
+  --accent-glow: rgba(79, 142, 247, 0.18);
+  --text: #e8eaf0;
+  --text-muted: #7a7f99;
+  --node-bg: #181b24;
+  --node-border: #2e3346;
+  --node-hover: #222638;
+  --node-selected: #1e2d50;
+  --collapse-btn: #f5a623;
+  --collapse-btn-hover: #ffba47;
+  --edge: #3a4060;
+  --edge-highlight: #4f8ef7;
+  --danger: #f76f6f;
+  --success: #4fd1a5;
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-display);
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* React Flow overrides */
+.react-flow__background {
+  background: var(--bg) !important;
+}
+
+.react-flow__background pattern circle {
+  fill: #1e2030 !important;
+}
+
+.react-flow__edge-path {
+  stroke: var(--edge) !important;
+  stroke-width: 1.5 !important;
+  transition: stroke 0.25s ease;
+}
+
+.react-flow__edge.highlighted .react-flow__edge-path {
+  stroke: var(--edge-highlight) !important;
+  stroke-width: 2 !important;
+}
+
+.react-flow__controls {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+
+.react-flow__controls-button {
+  background: var(--surface) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--text-muted) !important;
+  fill: var(--text-muted) !important;
+  transition: background 0.2s !important;
+}
+
+.react-flow__controls-button:hover {
+  background: var(--surface2) !important;
+  fill: var(--accent) !important;
+}
+
+.react-flow__minimap {
+  background: var(--surface) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+.react-flow__minimap-mask {
+  fill: rgba(79, 142, 247, 0.08) !important;
+}
+
+.react-flow__panel {
+  margin: 12px !important;
+}

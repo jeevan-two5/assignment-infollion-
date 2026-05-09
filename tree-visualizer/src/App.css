@@ -1,0 +1,64 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--bg);
+}
+
+.app__canvas {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Legend */
+.legend {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 5;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.legend__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.legend__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend__dot--collapse {
+  background: var(--collapse-btn);
+  box-shadow: 0 0 6px rgba(245,166,35,0.5);
+}
+
+.legend__dot--expand {
+  background: var(--accent2);
+  box-shadow: 0 0 6px rgba(124,92,252,0.5);
+}
+
+.legend__dot--search {
+  background: var(--success);
+  box-shadow: 0 0 6px rgba(79,209,165,0.5);
+}
+
+.legend__dot--selected {
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(79,142,247,0.5);
+}
